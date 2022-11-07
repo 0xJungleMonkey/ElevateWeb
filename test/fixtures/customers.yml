@@ -1,0 +1,56 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+
+  UserID: 
+  CustomerCreationDate: MyString
+  date: MyString
+  CompanyName: MyString
+  CompanyHQAdress: MyString
+  FullNameOfCompanyContact: MyString
+  CompanyContactPhone: MyString
+  CompanyContactEMail: MyString
+  CompanyDesc: MyText
+  FullNameServiceTechAuth: MyString
+  TechAuthPhoneService: MyString
+  TechManagerEmailService: MyString
+
+two:
+  UserID: 
+  CustomerCreationDate: MyString
+  date: MyString
+  CompanyName: MyString
+  CompanyHQAdress: MyString
+  FullNameOfCompanyContact: MyString
+  CompanyContactPhone: MyString
+  CompanyContactEMail: MyString
+  CompanyDesc: MyText
+  FullNameServiceTechAuth: MyString
+  TechAuthPhoneService: MyString
+  TechManagerEmailService: MyString
+=======
+  userid: MyString
+  customers_creation_date: MyString
+  company_name: MyString
+  company_headquarters_address: MyString
+  company_contact: MyString
+  contact_phone_number: MyString
+  contact_email: MyString
+  company_description: MyString
+  sta_name: MyString
+  ta_phone: MyString
+  tm_email: MyString
+
+two:
+  userid: MyString
+  customers_creation_date: MyString
+  company_name: MyString
+  company_headquarters_address: MyString
+  company_contact: MyString
+  contact_phone_number: MyString
+  contact_email: MyString
+  company_description: MyString
+  sta_name: MyString
+  ta_phone: MyString
+  tm_email: MyString
+

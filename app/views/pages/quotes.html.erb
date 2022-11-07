@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+ <div>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+<form action="/quotes" method="post" accept-charset="UTF-8" >
+<fieldset id="fieldset">
+
+  <div id="building-type" style="text-align:center">
+    <h2>What type of building do you need an elevator in?</h2>
+    
+      <div class="building-type form-check-inline">
+        <input class="building-type-input" type="radio" name="building_type" id="residential" value="option1">
+        <label class="building-type-label" for="residential">Residential</label>
+      </div>
+      <div class="building-type form-check-inline">
+        <input class="building-type-input" type="radio" name="building_type" id="commercial" value="option2">
+        <label class="building-type-label" for="commercial">Commercial</label>
+      </div>
+      <div class="building-type form-check-inline">
+        <input class="building-type-input" type="radio" name="building_type" id="corporate" value="option3">
+        <label class="building-type-label" for="corporate">Corportate</label>
+      </div>
+      <div class="building-type form-check-inline">
+        <input class="building-type-input" type="radio" name="building_type" id="hybrid" value="option">
+        <label class="building-type-label" for="hybrid">Hybrid</label>
+      </div>
+ 
+
+  </div>
+
+
+
+ 
+  <div id="quality" style="text-align:center">
+    <h2>What quality of service would you like:</h2>
+  
+      <div class="quality form-check-inline">
+        <input class="quality-input" type="radio" name="service_quality" id="standard" value="option1">
+        <label class="form-check-label" for="standard">Standard</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="quality-input" type="radio" name="service_quality" id="premium" value="option2">
+        <label class="form-check-label" for="premium">Premium</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="quality-input" type="radio" name="service_quality" id="excelium" value="option3">
+        <label class="form-check-label" for="excelium">Excelium</label>
+      </div>
+
+
+  </div>
+ 
+  <!-- INPUT QUESTIONS -->
+ 
+    <div class="apartment-number text-center col-md-12" >
+      <div id="apartment-number-input-container" class="mb-12" >
+        <label for="formGroupExampleInput" class="form-label">How many apartments are in the building?</label>
+        <input type="number" class="form-control" id="apartment-input" name="number_of_apartments" min="1" placeholder="0">
+      </div>
+    </div>
+    <div class="business-number col-md-12" style="text-align:center">
+      <div id="business-number-input-container" class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">How many distinct businesses are in the building?</label>
+        <input type="number" class="form-control" id="business-input" name="number_of_businesses" min="1" placeholder="0">
+      </div>
+    </div>
+    <div class="floor-number col-md-12" style="text-align:center">
+      <div id="floor-number-input-container" class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">How many floors are in the building?</label>
+        <input type="number" class="form-control" id="floor-input" name="number_of_floors" min="1" placeholder="0">
+      </div>
+    </div>
+    <div class="basement-number col-md-12" style="text-align:center">
+      <div id="basement-number-input-container" class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">How many basement floors are in the building?</label>
+        <input type="number" class="form-control" id="basement-input" name="number_of_basements" min="0" placeholder="0">
+      </div>
+    </div>
+    <div class="parking-number col-md-12" style="text-align:center">
+      <div id="parking-number-input-container" class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">How many parking spots are available?</label>
+        <input type="number" class="form-control" id="parking-input" name="number_of_parking" min="1"  placeholder="0">
+      </div>
+    </div>
+    <div class="cage-number col-md-12" style="text-align:center">
+      <div id="cage-number-input-container" class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">How many elevator cages are needed?</label>
+        <input type="number" class="form-control" id="cage-input" name="number_of_cages" min="1" placeholder="0">
+      </div>
+    </div>
+    <div class="occupants-number col-md-12" style="text-align:center">
+      <div id="occupants-number-input-container" class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">What is the maximum number of occupants per floor?</label>
+        <input type="number" class="form-control" id="occupants-input" name="number_of_occupants" min="1" placeholder="0">
+      </div>
+    </div>
+    <div class="hour-number col-md-12" style="text-align:center ;">
+      <div id="hour-number-input-container" class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">How many hours of activity in the building per day??</label>
+        <input type="number" class="form-control" id="hour-input" name="number_of_hours" min="1" max="24" placeholder="0">
+      </div>
+    </div>
+
+
+  <br>
+  <br>
+  <!-- OUTPUTS -->
+  <div>
+    <div class= "elevators-needed col-md-12" style="text-align: center;">
+      <div id="elevators-needed-output-container"></div>
+      <label for= "Output" class="form-label"></label> The amount of elevators needed:
+      <output type="Number" class="form-control" name="number_of_elevators_needed" id="elevators-needed"></output>
+    </div>
+  </div>
+  <div>
+    <div class= "unit-price col-md-12" style="text-align: center;">
+      <div id="unit-price-output-container"></div>
+      <label for= "Output" class="form-label"></label> The unit price of each elevator:
+      <output type="Number"  class="form-control" name="price_per_unit" id="unit-price"></output>
+    </div>
+
+  </div>
+  <div>
+    <div class= "elevator-price col-md-12" style="text-align: center;">
+      <div id="elevator-price-output-container"></div>
+      <label for= "Output" class="form-label"></label> The total price of the elevators:
+      <output type="Number" class="form-control" name="elevator_price" id="elevator-price"></output>
+
+    </div>
+    <div>
+      <div class= "installation-fee col-md-12" style="text-align: center;">
+        <div id="installation-fee-output-container"></div>
+        <label for= "Output" class="form-label"></label> The installation fees:
+        <output type="Number" class="form-control" name="installation_fee" id="installation-fee"></output>
+
+      </div>
+      <div>
+        <div class= "final-price col-md-12" style="text-align: center;">
+          <div id="final-price-output-container">
+          <label for= "Output" class="form-label"></label> The final price, combining the price of the elevators and the installation fees:
+          <output type="Number" class="form-control" name="final_price" id="final-price" readonly></output>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+
+
+      </div>
+<div class="row">
+									<div class="col-md-12">
+										<input type="submit" class="btn btn-primary"><i class="fa fa-check"></i>
+									</div>
+								</div>
+      <!-- /wrapper -->
+      </fieldset>
+</form>
+
+      <!-- SCROLL TO TOP -->
+      <a href="#" id="toTop"></a>
+
+
+
+<!-- PRELOADER
+<div id="preloader">
+  <div class="inner">
+    <span class="loader"></span>
+  </div>
+</div> /PRELOADER -->
+
+
+<!-- JAVASCRIPT FILES -->
+<%# <script>var plugin_path = 'assets/plugins/';</script>
+<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script> %>
+
+<!-- LAYER SLIDER -->
+<%# <script src="assets/plugins/slider.layerslider/js/layerslider_pack.js"></script>
+<script src="assets/plugins/slider.layerslider/plugins/origami/layerslider.origami.js"></script>
+
+<script src="assets/js/view/demo.layerslider_slider.js"></script> %>
+
+<!-- SCRIPTS -->
+<%# <script src="assets/js/scripts.js"></script> %>
+
+<!-- STYLESWITCHER - REMOVE -->
+<%# <script async src="demo_files/styleswitcher/styleswitcher.js"></script> %>
+</body>
+</html>

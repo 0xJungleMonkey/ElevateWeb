@@ -1,0 +1,77 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+
+  FullName: MyString
+  CompanyName: MyString
+  E-Mail: MyString
+  Phone: 
+  ProjectName: MyString
+  ProjectDesc: MyString
+  ElevatorAdmin: MyString
+  Message: MyString
+  AttachedFile: 
+  ContactRequest: 2022-10-31 10:04:58
+
+two:
+  FullName: MyString
+  CompanyName: MyString
+  E-Mail: MyString
+  Phone: 
+  ProjectName: MyString
+  ProjectDesc: MyString
+  ElevatorAdmin: MyString
+  Message: MyString
+  AttachedFile: 
+  ContactRequest: 2022-10-31 10:04:58
+=======
+
+  Full_name_of_the_contact: MyString
+  Bussiness_name: MyString
+  Email: MyString
+  Phone: MyString
+  Project_name: MyString
+  Project_description: MyString
+  Department_incharge: MyString
+  Message: MyString
+  Attached_file: MyString
+  Data_of_the_contact_request: MyString
+
+two:
+  Full_name_of_the_contact: MyString
+  Bussiness_name: MyString
+  Email: MyString
+  Phone: MyString
+  Project_name: MyString
+  Project_description: MyString
+  Department_incharge: MyString
+  Message: MyString
+  Attached_file: MyString
+  Data_of_the_contact_request: MyString
+
+  full_name: MyString
+  company_name: MyString
+  email: MyString
+  phone: MyString
+  project_name: MyString
+  project_description: MyString
+  string: MyString
+  dept_in_charge: MyString
+  message: MyString
+  attached_file: MyString
+  doc: MyString
+
+two:
+  full_name: MyString
+  company_name: MyString
+  email: MyString
+  phone: MyString
+  project_name: MyString
+  project_description: MyString
+  string: MyString
+  dept_in_charge: MyString
+  message: MyString
+  attached_file: MyString
+  doc: MyString
+
+

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  CreationDate: 2022-10-31
+  CompanyName: MyString
+  FullNameOfCompanyMainContact: MyString
+  EmailOfCompanyMainContact: MyString
+  NbElevators: MyString
+  CustomerCity: MyString
+
+two:
+  CreationDate: 2022-10-31
+  CompanyName: MyString
+  FullNameOfCompanyMainContact: MyString
+  EmailOfCompanyMainContact: MyString
+  NbElevators: MyString
+  CustomerCity: MyString

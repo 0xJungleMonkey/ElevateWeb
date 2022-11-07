@@ -1,0 +1,46 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+
+  BuildingID: 
+  Type: MyString
+  Status: MyString
+  EmployeeID: 
+  CommissionDate: 2022-10-31
+  LastInspectionDate: 2022-10-31
+  OperationsCert: MyString
+  Information: MyText
+  Notes: MyText
+
+two:
+  BuildingID: 
+  Type: MyString
+  Status: MyString
+  EmployeeID: 
+  CommissionDate: 2022-10-31
+  LastInspectionDate: 2022-10-31
+  OperationsCert: MyString
+  Information: MyText
+  Notes: MyText
+
+  buildingid: MyString
+  type: 
+  status: MyString
+  employeeid: MyString
+  dateof_commisssion: MyString
+  last_inspection_date: MyString
+  certificate_of_operations: MyString
+  information: MyString
+  notes: MyString
+
+two:
+  buildingid: MyString
+  type: 
+  status: MyString
+  employeeid: MyString
+  dateof_commisssion: MyString
+  last_inspection_date: MyString
+  certificate_of_operations: MyString
+  information: MyString
+  notes: MyString
+
