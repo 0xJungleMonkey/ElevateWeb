@@ -14,11 +14,14 @@ gem 'jquery-rails'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
+gem "figaro"
 gem 'mysql2'
 
 gem 'pg'
 
 gem 'secondbase', '~> 2.1'
+
+gem 'slack-notifier', '~> 1.5', '>= 1.5.1'
 
 # Use Puma as the app server
 # gem 'puma', '~> 4.3.11'
