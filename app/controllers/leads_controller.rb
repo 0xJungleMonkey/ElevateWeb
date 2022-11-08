@@ -56,9 +56,8 @@ def create
         end
         if @lead.Attached_file == nil
         @lead.Attached_file = "n/a"
-        has_attachment = "not"
         else
-        has_attachment = ""
+        @lead.Attached_file = "Has attachment"
         end
     #attachments should be of the form array of Hash with files mapped to the key 'resource'.
     multipart_payload = { status: 2,
@@ -68,9 +67,8 @@ def create
                         description: "The contact #{@lead.Full_name_of_the_contact} from company #{@lead.Bussiness_name} can
                          be reached at email #{@lead.Email} and at phone number #{@lead.Phone}. #{@lead.Department_incharge} has a 
                          project named #{@lead.Project_name} which would require contribution from Rocket Elevators.                                                                                     
-                         Project Description: #{@lead.Project_description}",
-                        subject: "#{@lead.Full_name_of_the_contact} from company #{@lead.Bussiness_name}",
-                        # attachments: [File.new('/path/to/your/file.png', 'rb'), File.new('/path/to/your/file2.png', 'rb')]
+                         Project Description: #{@lead.Project_description}. Has Attached File: #{@lead.Attached_file} ",
+                        subject: "#{@lead.Full_name_of_the_contact} from company #{@lead.Bussiness_name}",               
     }.to_json
                         
                         

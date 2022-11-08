@@ -83,7 +83,6 @@ class QuotesController < ApplicationController
                         project named #{@lead.Project_name} which would require contribution from Rocket Elevators.                                                                                     
                         Project Description: #{@lead.Project_description}",
                         subject: "#{@lead.Full_name_of_the_contact} from company #{@lead.Bussiness_name}",
-                        # attachments: [File.new('/path/to/your/file.png', 'rb'), File.new('/path/to/your/file2.png', 'rb')]
       }.to_json
                         
                         
