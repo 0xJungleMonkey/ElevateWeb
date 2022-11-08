@@ -10,8 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
 ActiveRecord::Schema.define(version: 2022_11_08_193240) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -182,11 +180,6 @@ ActiveRecord::Schema.define(version: 2022_11_08_193240) do
     t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
-  create_table "dim_customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "column_id"
     t.integer "SerialNumber"
@@ -214,21 +207,6 @@ ActiveRecord::Schema.define(version: 2022_11_08_193240) do
     t.index ["user_id"], name: "index_employees_on_user_id"
   end
 
-  create_table "fact_contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "fact_elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "fact_quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "Full_name_of_the_contact"
     t.string "Bussiness_name"
@@ -240,14 +218,6 @@ ActiveRecord::Schema.define(version: 2022_11_08_193240) do
     t.string "Message"
     t.string "Attached_file"
     t.datetime "Creation_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "name"
-    t.string "latitude"
-    t.string "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -275,9 +245,8 @@ ActiveRecord::Schema.define(version: 2022_11_08_193240) do
     t.string "email"
     t.string "phone"
     t.string "department"
-    t.string "project_description"
     t.string "project_name"
-
+    t.string "project_description"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
