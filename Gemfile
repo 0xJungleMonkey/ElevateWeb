@@ -16,7 +16,7 @@ gem 'jquery-rails'
 
 gem "figaro"
 gem 'mysql2'
-
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
 gem 'pg'
 
 gem 'secondbase', '~> 2.1'
