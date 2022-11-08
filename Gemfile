@@ -10,6 +10,10 @@ gem 'font-awesome-sass', '~> 4.3.0'
 gem 'jquery-ui-rails'
 gem 'bootstrap-social-rails'
 gem 'jquery-rails'
+gem 'figaro'
+gem 'freshdesk'
+gem 'rest-client'
+gem 'json'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
