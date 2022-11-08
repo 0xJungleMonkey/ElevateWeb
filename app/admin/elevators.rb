@@ -5,7 +5,7 @@ ActiveAdmin.register Elevator do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :columns_id, :SerialNumber, :Model, :Type, :Status, :CommisionDate, :LastInspectionDate, :InspectionCert, :Information, :Notes
+  permit_params :columns_id, :SerialNumber, :Model, :Type, :Status, :CommisionDate, :LastInspectionDate, :InspectionCert, :Information, :Notes
   #
   # or
   #
