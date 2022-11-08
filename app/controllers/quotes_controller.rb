@@ -10,11 +10,12 @@ class QuotesController < ApplicationController
 
     @quote = Quote.create!(
       name: params[:name]
-      company_name: params[:company_name]
+      company_name: params[:businessname]
       email: params[:email]
       phone: params[:phone]
       department: params[:department]
       project_description: params[:project_description]
+
       building_type: params[:building_type],
       service_quality: params[:service_quality],
       number_of_apartments: params[:number_of_apartments],
@@ -30,6 +31,7 @@ class QuotesController < ApplicationController
       elevator_price: params[:elevator_price],
       installation_fee: params[:installation_fee],
       final_price: params[:final_price]
+
     )
     redirect_to('/quotes')
      ##################################################################
