@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_04_161540) do
+ActiveRecord::Schema.define(version: 2022_11_09_181354) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "namespace"
@@ -210,7 +210,7 @@ ActiveRecord::Schema.define(version: 2022_11_04_161540) do
   create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "Full_name_of_the_contact"
     t.string "Bussiness_name"
-    t.string "Email"
+    t.string "email"
     t.string "Phone"
     t.string "Project_name"
     t.string "Project_description"
@@ -252,6 +252,14 @@ ActiveRecord::Schema.define(version: 2022_11_04_161540) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "vsers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "login"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "batteries", "buildings"

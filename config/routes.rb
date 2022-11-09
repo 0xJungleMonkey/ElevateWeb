@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
  
+  resources :vsers
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   mount Blazer::Engine, at: "blazer"
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
 
  
 # post '/quote', to: 'quotes#create'
+post '/lead', to: 'leads#create'
 
 root 'pages#index'
 
