@@ -5,8 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-
+	
 require 'json'
 # load and parse json file
 jsonFile = File.read(Rails.root.join('lib', 'Addresses.json'))
@@ -30,16 +29,12 @@ address_counter = 0;
 		country: "murica",
 		notes: Faker::TvShows::SouthPark.quote,
 	)
-
 	address_counter += 1
 
 end
 
 
 puts "//***************Address Table seeded with #{Address.count} records*****************"
-
-
-
 
 
 require 'csv'
@@ -107,10 +102,10 @@ end
 
 
 
-record = Address.first.id
+record = 1
 counter = 0
 add_id = record + counter
-35.times do
+34.times do
     user = User.create(
         email: Faker::Internet.email,
         password: 'password',
@@ -136,11 +131,10 @@ end
 puts "//***************Customer Table seeded with #{Customer.count} records*****************"
 
 
-
 Customer.all.each do |cust|
 rand(1..2).times do
     Building.create!(
-        address_id: add_id,
+        address_id: cust.address_id,
         customer: cust,
         FullNameOfBuildingAdmin: Faker::Name.unique.name,
         EmailOfAdminOfBuilding: Faker::Internet.email,
@@ -150,8 +144,11 @@ rand(1..2).times do
         TechContactPhoneForBuilding: Faker::PhoneNumber.cell_phone,
     )
     counter += 1
+	# add_id += 1
+
     end
 end
+
 
 puts "//***************Building Table seeded with #{Building.count} records*****************"
 
