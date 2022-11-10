@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
  
+  resources :maps
+  resources :places
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   mount Blazer::Engine, at: "blazer"
@@ -24,8 +26,9 @@ resources :leads
 resources :quotes
 get '/index', to: 'pages#index'
 
+get '/map', to: 'admin#map'
 
-
+resources :maps
 
 end
 

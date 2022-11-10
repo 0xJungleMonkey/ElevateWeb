@@ -1,0 +1,55 @@
+<% provide :head_tags do %>
+  <meta name='turbolinks-visit-control' content='reload'>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      initMap()
+    });
+  </script>
+<% end %>
+<div class="map-container">
+<div 
+    id="breweries" style="display:none">
+    <ol>
+      <% Address.all.each do |address| %>
+      <% b = address.building%>      
+         <% no_of_column = 0 %>
+         <% no_of_elevator = 0 %>
+         <% for c in b.battery_ids do %>
+            <% no_of_column += Column.where(battery_id: c).count%>
+            <% columns = Column.where(battery_id:c)%>
+            <% for e in columns do %>
+              <% no_of_elevator += Elevator.where(Column_id: e).count %>
+              <% end %>
+          <%end %>
+          <% no_of_floor = Quote.find(address.id).number_of_floors%>
+          <li
+          class="address-list-item"
+          data-latitude=<%= address.latitude %>
+          data-longitude=<%= address.longitude %>
+          data-location1=<%= address.number_and_street%>
+          data-location2=<%= address.city%>
+          data-location3=<%= address.postal_code%>
+          data-location4=<%= address.country%>
+          data-client=<%= address.customerInfo[0]%>
+          data-tec=<%= address.customerInfo[1]%>
+          data-batteries=<%=b.battery_ids.count%>
+          data-columns=<%=no_of_column%>
+          data-elevators=<%=no_of_elevator%>
+          data-buildingfloors=<%=no_of_floor%>
+
+        >
+        </li>
+        <% end %>
+     
+    </ol>
+</div>
+<%# <div id="map" ></div> %>
+<div id="map" class="z-depth-1-half map-container" style="width: 100vw">
+  <iframe  frameborder="0" src='https://maps.googleapis.com/maps/api/js?key='+Figaro.env.google_maps_api_key,defer: true
+    style="border:0" allowfullscreen></iframe>
+</div>
+
+</div>
+
+<%= javascript_tag 'map' %>
+<%# <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+Figaro.env.google_maps_api_key,defer: true%> %>
