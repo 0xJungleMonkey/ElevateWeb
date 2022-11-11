@@ -9,6 +9,10 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
+    # action_item :view, only: :show do
+    #   link_to 'HELLO', post_path(post) if post.published
+    # end
+
     # Here is an example of a simple dashboard with columns and panels.
     #
     # columns do

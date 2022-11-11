@@ -84,9 +84,8 @@ class QuotesController < ApplicationController
                         description: "The contact #{@quote.name} from company #{@quote.company_name} can
                         be reached at email #{@quote.email} and at phone number #{@quote.phone}. #{@quote.department} has a 
                         project named #{@quote.project_name} which would require contribution from Rocket Elevators. The project is for 
-                        a #{@quote.building_type} building with #{@quote.service_quality} quality. The total quoted price
-                        is #{@final_price}",
-                        subject: "#{@quote.name} from company #{@quote.company_name}",
+                        a #{@quote.building_type} building with #{@quote.service_quality} quality.",
+                        subject: "#{@quote.name} from company #{@quote.company_name}. Project Description: #{@quote.project_description}",
       }.to_json
     # quote_payload = {status: 2, priority: 1, type: "Question", email: "email@stuff.com", description: "Hello", subject: "yeeee",}.to_json
                         
