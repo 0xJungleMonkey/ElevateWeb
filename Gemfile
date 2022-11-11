@@ -16,9 +16,13 @@ gem 'jquery-rails'
 
 gem "figaro"
 
+gem 'activestorage-dropbox'
+
 gem 'dropbox_api'
 
 gem 'mysql2'
+
+gem 'image_processing', '~> 1.2'
 
 gem 'pg'
 

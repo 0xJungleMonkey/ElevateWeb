@@ -17,10 +17,13 @@ class LeadsController < ApplicationController
 
   end
 
-  private
+  # private
+  #
+  # def image?
+  #   params[:Attached_file]&.read
+  # end
 
-  def image?
-    params[:Attached_file]&.read
+  def post_params
+    params.require(:post).permit(:title, :body, :image, :remove_attached_image)
   end
-
 end
