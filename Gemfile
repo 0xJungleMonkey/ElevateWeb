@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.6'
-
+gem 'twilio-ruby', '~> 5.73.1'
+gem "figaro"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
 gem 'bootstrap-sass', '~> 3.3.4'
@@ -10,14 +11,21 @@ gem 'font-awesome-sass', '~> 4.3.0'
 gem 'jquery-ui-rails'
 gem 'bootstrap-social-rails'
 gem 'jquery-rails'
+gem 'figaro'
+gem 'freshdesk'
+gem 'rest-client'
+gem 'json'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
+gem "figaro"
 gem 'mysql2'
-
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
 gem 'pg'
 
 gem 'secondbase', '~> 2.1'
+
+gem 'slack-notifier', '~> 1.5', '>= 1.5.1'
 
 # Use Puma as the app server
 # gem 'puma', '~> 4.3.11'

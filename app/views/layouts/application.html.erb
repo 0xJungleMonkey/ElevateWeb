@@ -7,7 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <head>
+    
     <meta charset="utf-8" />
     <title>Rocket Elevators - Multipurpose + Admin</title>
     <meta name="description" content="" />
@@ -19,8 +19,10 @@
     
      <!-- WEB FONTS : use %7C instead of | (pipe) -->
      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
-    <script>let plugin_path = '/assets/plugins/'</script
-    
+    <%# <script>let plugin_path = '/assets/plugins/'</script %>
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+Figaro.env.google_maps_api_key%>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <%= yield(:head_tags) %>
     </head>
  
     <div id="header" class="navbar-toggleable-md sticky header-md clearfix">

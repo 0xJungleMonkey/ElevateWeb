@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_09_181354) do
+
+
+ActiveRecord::Schema.define(version: 2022_11_10_175021) do
+
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "namespace"
@@ -38,6 +41,8 @@ ActiveRecord::Schema.define(version: 2022_11_09_181354) do
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -222,6 +227,7 @@ ActiveRecord::Schema.define(version: 2022_11_09_181354) do
     t.datetime "updated_at", null: false
   end
 
+
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "building_type"
     t.string "service_quality"
@@ -240,6 +246,13 @@ ActiveRecord::Schema.define(version: 2022_11_09_181354) do
     t.string "final_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "company_name"
+    t.string "email"
+    t.string "phone"
+    t.string "department"
+    t.string "project_name"
+    t.string "project_description"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
