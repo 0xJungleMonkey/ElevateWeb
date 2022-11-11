@@ -13,13 +13,11 @@ include SendGrid
             Department_incharge: params[:projectdescription],
             Message: params[:message],
             Attached_file: params[:attachment],
-            
-        )   
+        )
         
         
-
         from = SendGrid::Email.new(email: 'baseballperks318@gmail.com')
-        to = SendGrid::Email.new("#{@lead.email}")
+        to = SendGrid::Email.new(email: "#{@lead.email}")
         subject = "Greetings #{@lead.Full_name_of_the_contact}
         We thank you for contacting Rocket Elevators to discuss the opportunity to contribute to your project [Project Name].
         A representative from our team will be in touch with you very soon. We look forward to demonstrating the value of our solutions and helping you choose the appropriate product given your requirements.
@@ -33,6 +31,13 @@ include SendGrid
         puts response.status_code
         puts response.body
         puts response.headers
-
+        
+        end
+    
     end
-end
+        
+
+        
+
+
+
