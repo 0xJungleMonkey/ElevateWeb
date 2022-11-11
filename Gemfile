@@ -15,6 +15,9 @@ gem 'jquery-rails'
 # gem 'sqlite3'
 
 gem "figaro"
+
+gem 'dropbox_api'
+
 gem 'mysql2'
 
 gem 'pg'
