@@ -101,6 +101,13 @@ require 'faker'
 		elevator_price: Faker::Number.decimal(l_digits: 3, r_digits: 2),
 		installation_fee: Faker::Number.decimal(l_digits: 3, r_digits: 2),
 		final_price: Faker::Number.decimal(l_digits: 4, r_digits: 2),
+		name: Faker::FunnyName.two_word_name,
+    	company_name: Faker::Games::Fallout.character,
+    	email: Faker::Internet.free_email,
+    	phone: Faker::Number.number(digits: 10),
+    	department: Faker::JapaneseMedia::Naruto.village,
+    	project_name: Faker::JapaneseMedia::OnePiece.island,
+    	project_description: Faker::Movies::HarryPotter.quote,
 
 	)
 end
