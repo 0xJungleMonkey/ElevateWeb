@@ -72,3 +72,5 @@ yarn-debug.log*
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/credentials.yml.enc
+Rocket_Elevators_API/config/credentials.yml.enc
