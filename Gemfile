@@ -20,8 +20,19 @@ gem 'json'
 gem 'aws-sdk'
 
 gem "figaro"
+
+gem 'activestorage-dropbox'
+
+gem 'dropbox_api'
+
 gem 'mysql2'
+
+
+gem 'image_processing', '~> 1.2'
+
+
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
+
 gem 'pg'
 
 gem 'secondbase', '~> 2.1'

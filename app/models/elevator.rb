@@ -19,11 +19,13 @@ class Elevator < ApplicationRecord
   #   if oldstatus != self.Status
 
 
-  #     notifier = Slack::Notifier.new ENV["slackwebhook"]
-  #     notifier.ping "The Elevator #{id} with Serial Number #{self.SerialNumber} changed status from #{oldstatus} to #{self.Status}"
-  #   end
-  # end
 
+      notifier = Slack::Notifier.new ENV["slackwebhook"]
+      notifier.ping "The Elevator #{id} with Serial Number #{self.SerialNumber} changed status from #{oldstatus} to #{self.Status}"
+    end
+  end
+
+ 
   
  after_update do
   if self.Status = "Intervention"
@@ -42,3 +44,4 @@ end
 
 end
 end
+
