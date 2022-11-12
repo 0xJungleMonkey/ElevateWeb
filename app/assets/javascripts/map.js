@@ -20,7 +20,6 @@ function initMap() {
               address.getAttribute("data-location2"),
               address.getAttribute("data-location3"),
               address.getAttribute("data-location4"),
-              // address.getAttribute("data-location5"),
               address.getAttribute("data-client"),
               address.getAttribute("data-tec"),
               address.getAttribute("data-batteries"),
@@ -44,7 +43,7 @@ function initMap() {
       });
   google.maps.event.addListener(marker, 'click', (function (marker, count) {
         return function () {
-          infowindow.setContent("Building Location: " +locations[count][2]+" "+ locations[count][3]+" "+ locations[count][4]+" "+locations[count][5]+" "+locations[count][6]+" "+locations[count][7]+" " +locations[count][8] + " " + locations[count][9]+ " " + locations[count][10] + " " + locations[count][11]);
+          infowindow.setContent("<p>" +"Building Location: " +locations[count][2]+", "+ locations[count][3]+", "+ locations[count][4]+", "+locations[count][5]+"<br /> "+locations[count][6]+" "+locations[count][7]+" " +locations[count][8] + " " + locations[count][9]+ " " + locations[count][10] + " " + locations[count][11]+"</p>");
           infowindow.open(map, marker);
         }
       })(marker, count));
