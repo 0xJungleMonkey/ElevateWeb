@@ -307,7 +307,6 @@ GEM
     aws-sdk-controltower (1.1.0)
       aws-sdk-core (~> 3, >= 3.165.0)
       aws-sigv4 (~> 1.1)
-
     aws-sdk-core (3.167.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.651.0)
@@ -784,6 +783,9 @@ GEM
     aws-sdk-polly (1.0.0)
       aws-sdk-core (~> 3)
       aws-sigv4 (~> 1.0)
+    aws-sdk-polly (1.60.0)
+      aws-sdk-core (~> 3, >= 3.165.0)
+      aws-sigv4 (~> 1.1)
     aws-sdk-pricing (1.41.0)
       aws-sdk-core (~> 3, >= 3.165.0)
       aws-sigv4 (~> 1.1)
@@ -1352,11 +1354,6 @@ GEM
       aws-sdk-core (~> 3, >= 3.165.0)
       aws-sigv4 (~> 1.1)
     aws-sigv2 (1.1.0)
-
-    aws-sdk-polly (1.60.0)
-      aws-sdk-core (~> 3, >= 3.165.0)
-      aws-sigv4 (~> 1.1)
-
     aws-sigv4 (1.5.2)
       aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.18)
@@ -1645,10 +1642,8 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
-
   aws-sdk
   aws-sdk-polly (~> 1.0.0.rc3)
-
   bcrypt_pbkdf (>= 1.0, < 2.0)
   blazer
   bootsnap (>= 1.1.0)
