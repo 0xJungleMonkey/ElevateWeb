@@ -1,8 +1,8 @@
 class LeadsController < ApplicationController
-  # protect_from_forgery
-  skip_before_action :verify_authenticity_token
+  protect_from_forgery
+  # skip_before_action :verify_authenticity_token
   def create
-    puts "params: #{params}"
+
     lead = Lead.create!(
       Full_name_of_the_contact: params[:name],
       Bussiness_name: params[:bussinessname],
@@ -12,7 +12,7 @@ class LeadsController < ApplicationController
       Project_description: params[:projectname],
       Department_incharge: params[:projectdescription],
       Message: params[:message],
-      Attached_file: image?
+      Attached_file: params[:Attached_file]
     )
 
   end
@@ -23,7 +23,4 @@ class LeadsController < ApplicationController
   #   params[:Attached_file]&.read
   # end
 
-  def post_params
-    params.require(:post).permit(:title, :body, :image, :remove_attached_image)
-  end
 end
