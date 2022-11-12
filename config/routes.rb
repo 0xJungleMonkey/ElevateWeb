@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   
  
   resources :pollies
+
+  resources :vsers
+
   resources :maps
   resources :places
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -13,6 +16,7 @@ Rails.application.routes.draw do
 
  
 # post '/quote', to: 'quotes#create'
+post '/lead', to: 'leads#create'
 
 root 'pages#index'
 
