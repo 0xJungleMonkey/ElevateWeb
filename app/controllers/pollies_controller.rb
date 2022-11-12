@@ -1,7 +1,7 @@
 class PolliesController < ApplicationController
   require "aws-sdk-polly"  
   def index
-    polly = Aws::Polly::Client.new
+    polly = Aws::Polly::Client.new(region: 'us-west-2')
     contents = IO.read('./lib/Greeting.txt')
     resp = polly.synthesize_speech({
         output_format: "mp3",
