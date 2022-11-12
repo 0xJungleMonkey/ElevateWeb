@@ -1,7 +1,9 @@
 
 function initMap() {
-    var lat=35.1774;
-    var lng=-97.4118;
+    var lat=43.4732;
+    // 35.1774;
+    var lng=-72.4964;
+    // -97.4118;
 
     var myCoords = new google.maps.LatLng(lat, lng);
     var mapOptions = {
@@ -45,7 +47,14 @@ function initMap() {
         });
     google.maps.event.addListener(marker, 'click', (function (marker, count) {
           return function () {
-            infowindow.setContent("Building Location: " +locations[count][2]+" "+ locations[count][3]+" "+ locations[count][4]+" "+locations[count][5]+" "+locations[count][6]+" "+locations[count][7]+" " +locations[count][8] + " " + locations[count][9]+ " " + locations[count][10] + " " + locations[count][11]);
+            infowindow.setContent("<p>" +"Building Location: " +locations[count][2]+", "+
+             locations[count][3]+", "+ locations[count][4]+", "+locations[count][5]+
+             "<br /> Company Name: "+locations[count][6]+
+             "<br /> Full name of the tech: "+locations[count][7]+
+             "<br /> No.of Batteries: " +locations[count][8] +
+              "<br /> No.of Columns: " + locations[count][9]+
+               "<br /> No.of Elevators: " + locations[count][10] +
+                "<br /> No.of Floors: " + locations[count][11]+"</p>");
             infowindow.open(map, marker);
           }
         })(marker, count));

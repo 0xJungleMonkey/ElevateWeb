@@ -1,7 +1,6 @@
 
 <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+Figaro.env.google_maps_api_key%>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     
 <% provide :head_tags do %>
@@ -106,8 +105,16 @@ function initMap() {
       });
   google.maps.event.addListener(marker, 'click', (function (marker, count) {
         return function () {
-          infowindow.setContent("Building Location: " +locations[count][2]+" "+ locations[count][3]+" "+ locations[count][4]+" "+locations[count][5]+" "+locations[count][6]+" "+locations[count][7]+" " +locations[count][8] + " " + locations[count][9]+ " " + locations[count][10] + " " + locations[count][11]);
-          infowindow.open(map, marker);
+           infowindow.setContent("<p>" +"Building Location: " +locations[count][2]+", "+
+             locations[count][3]+", "+ locations[count][4]+", "+locations[count][5]+
+             "<br /> Company Name: "+locations[count][6]+
+             "<br /> Full name of the tech: "+locations[count][7]+
+             "<br /> No.of Batteries: " +locations[count][8] +
+              "<br /> No.of Columns: " + locations[count][9]+
+               "<br /> No.of Elevators: " + locations[count][10] +
+                "<br /> No.of Floors: " + locations[count][11]+"</p>");
+            infowindow.open(map, marker);
+          
         }
       })(marker, count));
     }

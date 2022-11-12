@@ -24,7 +24,7 @@ gem 'geocoder', '~> 1.3', '>= 1.3.7'
 gem 'pg'
 
 gem 'secondbase', '~> 2.1'
-
+gem 'aws-sdk-polly'
 gem 'slack-notifier', '~> 1.5', '>= 1.5.1'
 
 # Use Puma as the app server
