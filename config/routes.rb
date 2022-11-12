@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
  
+  resources :pollies
   resources :maps
   resources :places
   devise_for :admin_users, ActiveAdmin::Devise.config
