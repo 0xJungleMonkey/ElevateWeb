@@ -1,0 +1,23 @@
+<h1>Greetings</h1>
+    <form id="input" method="Post" action="/read">
+        <input type="submit" value="Listen" id="submit" />
+    </form>
+
+<audio id="player"></audio>
+   
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var input = document.getElementById('input'),
+               
+                player = document.getElementById('player'),
+                submit = document.getElementById('submit');
+            
+            input.addEventListener('submit', function (event) {
+            
+                player.src = '/output.mp3'
+                player.play();
+            
+                event.preventDefault();
+            });
+        });
+    </script>

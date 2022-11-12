@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
  
+  resources :pollies
+
   resources :vsers
 
   resources :maps

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-
+gem 'aws-sdk-polly', '~> 1.0.0.rc3'
 ruby '2.7.6'
 gem 'twilio-ruby', '~> 5.73.1'
 gem "figaro"
@@ -17,6 +17,7 @@ gem 'rest-client'
 gem 'json'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
+gem 'aws-sdk'
 
 gem "figaro"
 gem 'mysql2'
