@@ -1,0 +1,2 @@
+class Vser < ApplicationRecord
+end

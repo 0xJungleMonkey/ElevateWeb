@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-
+gem 'aws-sdk-polly', '~> 1.0.0.rc3'
 ruby '2.7.6'
 gem 'twilio-ruby', '~> 5.73.1'
 gem "figaro"
@@ -11,8 +11,13 @@ gem 'font-awesome-sass', '~> 4.3.0'
 gem 'jquery-ui-rails'
 gem 'bootstrap-social-rails'
 gem 'jquery-rails'
+gem 'figaro'
+gem 'freshdesk'
+gem 'rest-client'
+gem 'json'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
+gem 'aws-sdk'
 
 gem "figaro"
 
@@ -22,12 +27,15 @@ gem 'dropbox_api'
 
 gem 'mysql2'
 
+
 gem 'image_processing', '~> 1.2'
+
+
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
 
 gem 'pg'
 
 gem 'secondbase', '~> 2.1'
-
 gem 'slack-notifier', '~> 1.5', '>= 1.5.1'
 
 # Use Puma as the app server
@@ -105,3 +113,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
   gem 'faker'
   gem "blazer"
+  gem 'figaro'
+  gem 'sendgrid-ruby'

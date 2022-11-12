@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2022_11_11_205135) do
+
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "namespace"
@@ -59,6 +61,8 @@ ActiveRecord::Schema.define(version: 2022_11_11_205135) do
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -231,7 +235,7 @@ ActiveRecord::Schema.define(version: 2022_11_11_205135) do
   create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "Full_name_of_the_contact"
     t.string "Bussiness_name"
-    t.string "Email"
+    t.string "email"
     t.string "Phone"
     t.string "Project_name"
     t.string "Project_description"
@@ -239,6 +243,16 @@ ActiveRecord::Schema.define(version: 2022_11_11_205135) do
     t.string "Message"
     t.binary "Attached_file", limit: 16777215
     t.datetime "Creation_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "maps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pollies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -261,6 +275,13 @@ ActiveRecord::Schema.define(version: 2022_11_11_205135) do
     t.string "final_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "company_name"
+    t.string "email"
+    t.string "phone"
+    t.string "department"
+    t.string "project_name"
+    t.string "project_description"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -275,7 +296,18 @@ ActiveRecord::Schema.define(version: 2022_11_11_205135) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+
+  create_table "vsers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "login"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+
   add_foreign_key "batteries", "buildings"
   add_foreign_key "batteries", "employees"
   add_foreign_key "building_details", "buildings"

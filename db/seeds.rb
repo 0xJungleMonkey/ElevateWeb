@@ -16,23 +16,25 @@ randomarray = Array.new(address_parse['addresses'].count - 1) { |e| e += 1 };
 arandom = randomarray.shuffle;
 address_counter = 0;
 (address_parse['addresses'].count - 1).times do
-  thisaddress = address_parse['addresses'][arandom[address_counter]]
-  Address.create!(
-    address_type: ["Home", "Business", "Shipping", "Billing"].sample,
-    status: ["verified", "unverified"].sample,
-    entity: ["Business", "Personal"].sample,
-    number_and_street: thisaddress["address1"],
-    suite_or_apartment: thisaddress["address2"],
-    city: thisaddress["city"],
-    postal_code: thisaddress["postalCode"],
-    country: "murica",
-    notes: Faker::TvShows::SouthPark.quote,
-  )
+	
+	thisaddress = address_parse['addresses'][arandom[address_counter]]
+	Address.create!(
+		address_type: ["Home", "Business", "Shipping", "Billing"].sample,
+		status: ["verified", "unverified"].sample,
+		entity: ["Business", "Personal"].sample,
+		number_and_street: thisaddress["address1"],
+		suite_or_apartment: thisaddress["address2"],
+		city: thisaddress["city"],
+		postal_code: thisaddress["postalCode"],
+		country: "murica",
+		notes: Faker::TvShows::SouthPark.quote,
+	)
+	address_counter += 1
 
-  address_counter += 1
 end
 
 puts "//***************Address Table seeded with #{Address.count} records*****************"
+
 
 require 'csv'
 csvfile = File.read(Rails.root.join('lib', 'seeds', 'EmployeeList.csv'))
@@ -95,46 +97,52 @@ require 'faker'
   )
 end
 
-record = Address.first.id
+
+record = 1
 counter = 0
 add_id = record + counter
-35.times do
-  user = User.create(
-    email: Faker::Internet.email,
-    password: 'password',
-  )
-  Customer.create!(
-    user: user,
-    CustomerCreationDate: Faker::Date.between(from: 3.years.ago, to: Date.today),
-    CompanyName: (Faker::Company.name + Faker::Company.suffix),
-    address_id: record + counter,
-    FullNameOfCompanyContact: Faker::Name.unique.name,
-    CompanyContactPhone: Faker::PhoneNumber.cell_phone,
-    CompanyContactEMail: Faker::Internet.email,
-    FullNameServiceTechAuth: Faker::Name.unique.name,
-    TechAuthPhoneService: Faker::PhoneNumber.cell_phone,
-    TechManagerEmailService: Faker::Internet.email,
-  )
-  counter += 1
+34.times do
+    user = User.create(
+        email: Faker::Internet.email,
+        password: 'password',
+    )
+    Customer.create!(
+        user: user,
+        CustomerCreationDate: Faker::Date.between(from: 3.years.ago, to: Date.today),
+        CompanyName: (Faker::Company.name + Faker::Company.suffix),
+        address_id: record + counter,
+        FullNameOfCompanyContact: Faker::Name.unique.name,
+        CompanyContactPhone: Faker::PhoneNumber.cell_phone,
+        CompanyContactEMail: Faker::Internet.email,
+        FullNameServiceTechAuth: Faker::Name.unique.name,
+        TechAuthPhoneService: Faker::PhoneNumber.cell_phone,
+        TechManagerEmailService: Faker::Internet.email,
+    )
+    counter += 1
 end
 
 puts "//***************Customer Table seeded with #{Customer.count} records*****************"
 
+
 Customer.all.each do |cust|
   rand(1..2).times do
     Building.create!(
-      address_id: add_id,
-      customer: cust,
-      FullNameOfBuildingAdmin: Faker::Name.unique.name,
-      EmailOfAdminOfBuilding: Faker::Internet.email,
-      PhoneNumOfBuildingAdmin: Faker::PhoneNumber.cell_phone,
-      FullNameOfTechContactForBuilding: Faker::Name.unique.name,
-      TechContactEmailForBuilding: Faker::Internet.email,
-      TechContactPhoneForBuilding: Faker::PhoneNumber.cell_phone,
+        address_id: cust.address_id,
+        customer: cust,
+        FullNameOfBuildingAdmin: Faker::Name.unique.name,
+        EmailOfAdminOfBuilding: Faker::Internet.email,
+        PhoneNumOfBuildingAdmin: Faker::PhoneNumber.cell_phone,
+        FullNameOfTechContactForBuilding: Faker::Name.unique.name,
+        TechContactEmailForBuilding: Faker::Internet.email,
+        TechContactPhoneForBuilding: Faker::PhoneNumber.cell_phone,
     )
     counter += 1
-  end
+	# add_id += 1
+
+    end
+
 end
+
 
 puts "//***************Building Table seeded with #{Building.count} records*****************"
 
