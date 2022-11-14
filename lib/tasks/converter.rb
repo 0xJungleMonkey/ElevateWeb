@@ -65,17 +65,6 @@ customersconvert();
 puts "DimCust Seeded #{DimCustomer.count} Record"
 def elevatorsconvert
     Elevator.all.each do |e|
-        # c = Column.find(e.column_id)
-        # bt = Battery.find(c.battery_id)
-        # b = Building.find(bt.id)
-       
-        # puts b.id
-        # cs = Customer.find(b.id)
-        # a = Address.find(cs.id)
-
-#             building_id: 
-#             customer_id:
-#             building_city:
         FactElevator.create!(
             {
                 serial_number: e.SerialNumber,
@@ -89,7 +78,59 @@ def elevatorsconvert
 end
 elevatorsconvert;
 puts "Fact_elevator Seeded #{FactElevator.count} Record"
-    
+def interventionconvert
+    Battery.all.each do |bat|
+        if bat.Status == "intervention"
+            require 'faker'
+            FactIntervention.create!(
+                employee_id: bat.employee_id,
+                building_id: bat.building_id,
+                battery_id: bat.id, 
+                column_id: nil,
+                elevator_id: nil,
+                status:["Pending","InProgress", "Interrupted ","Resumed", "Complete","Complete","Complete","Complete","Complete","Complete","Complete"].sample,
+                start_datetime: Faker::Date.between(from: bat.CommissionDate, to: Date.today),
+                end_datetime:  Faker::Date.between(from: bat.CommissionDate, to: Date.today),
+                result: ["Success","Success","Success","Success","Success","Success","Success","Success", "Failure", "Incomplete"].sample,
+                report: Faker::Movies::HarryPotter.quote
+            )
+        end
+    end
 
-
-
+    Elevator.all.each do |ele|
+        if ele.Status == "intervention"
+            require 'faker'
+            FactIntervention.create!(
+                employee_id: Battery.find(Column.find(ele.column_id).battery_id).employee_id,
+                building_id: Battery.find(Column.find(ele.column_id).battery_id).building_id,
+                battery_id: nil,
+                column_id: nil,
+                elevator_id: ele.id,
+                status:["Pending","InProgress", "Interrupted ","Resumed", "Complete","Complete","Complete","Complete","Complete","Complete","Complete"].sample,
+                start_datetime: Faker::Date.between(from: ele.CommisionDate, to: Date.today),
+                end_datetime:  Faker::Date.between(from: ele.CommisionDate, to: Date.today),
+                result: ["Success","Success","Success","Success","Success","Success","Success","Success", "Failure", "Incomplete"].sample,
+                report: Faker::Movies::HarryPotter.quote,
+            )
+        end
+    end
+    Column.all.each do |col|
+        if col.Status == "intervention"
+            require 'faker'
+            FactIntervention.create!(
+                employee_id: Battery.find(col.battery_id).employee_id,
+                building_id: Battery.find(col.battery_id).building_id,
+                battery_id: nil,
+                column_id: col.id,
+                elevator_id: nil,
+                status:["Pending","InProgress", "Interrupted ","Resumed", "Complete","Complete","Complete","Complete","Complete","Complete","Complete"].sample,
+                start_datetime: Faker::Date.between(from: Battery.find(col.battery_id).CommissionDate, to: Date.today),
+                end_datetime:  Faker::Date.between(from: Battery.find(col.battery_id).CommissionDate, to: Date.today),
+                result: ["Success","Success","Success","Success","Success","Success","Success","Success", "Failure", "Incomplete"].sample,
+                report: Faker::Movies::HarryPotter.quote
+            )
+        end
+    end
+end   
+interventionconvert();
+      

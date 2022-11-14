@@ -13,10 +13,10 @@ class Elevator < ApplicationRecord
     oldstatus = self.Status_was
   end
 
-  # after_update do
+  after_update do
 
 
-  #   if oldstatus != self.Status
+    if oldstatus != self.Status
 
 
 
