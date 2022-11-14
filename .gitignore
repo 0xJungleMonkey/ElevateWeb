@@ -76,4 +76,6 @@ yarn-debug.log*
 /config/credentials.yml.enc
 Rocket_Elevators_API/config/credentials.yml.enc
 sendgrid.env
+credentials.yml.enc
+/config/initializers/aws.rb
 
