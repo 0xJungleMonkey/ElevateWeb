@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-
+gem 'aws-sdk-polly', '~> 1.0.0.rc3'
 ruby '2.7.6'
 gem 'twilio-ruby', '~> 5.73.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -19,7 +19,12 @@ gem 'aws-sdk'
 gem 'aws-sdk-s3', '~> 1'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
+gem 'aws-sdk'
+gem "figaro"
+gem 'activestorage-dropbox'
+gem 'dropbox_api'
 gem 'mysql2'
+gem 'image_processing', '~> 1.2'
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
 gem 'pg'
 gem 'secondbase', '~> 2.1'
@@ -90,3 +95,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
   gem 'faker'
   gem "blazer"
+  gem 'figaro'
+  gem 'sendgrid-ruby'
