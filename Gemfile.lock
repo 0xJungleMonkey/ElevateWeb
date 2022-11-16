@@ -383,7 +383,6 @@ DEPENDENCIES
   secondbase (~> 2.1)
   selenium-webdriver
   sendgrid-ruby
-
   slack-notifier (~> 1.5, >= 1.5.1)
   spring
   spring-watcher-listen (~> 2.0.0)

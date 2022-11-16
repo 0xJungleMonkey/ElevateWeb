@@ -71,4 +71,5 @@ yarn-debug.log*
 /config/application.yml
 sendgrid.env
 
-
+appsettings.json
+appsettings.development.json
