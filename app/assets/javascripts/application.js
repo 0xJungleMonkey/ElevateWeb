@@ -13,9 +13,11 @@
 //= require jquery
 //= require jquery-ui
 //= require bootstrap-sprockets
-//= require rails-ujs
+
 //= require activestorage
 //= require turbolinks
 //= demo.revolution_slider
 //= demo.layerslider_slider
+//= require buildings
 //= require_tree .
+

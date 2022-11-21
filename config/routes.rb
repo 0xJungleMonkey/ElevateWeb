@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
- 
+  resources :buildings
+  resources :interventions
   resources :pollies
-
+  get 'get_buildings_by_customer_id/:customer_id', to: 'interventions#get_buildings_by_customer_id'  
+  get '/building_search' => 'buildings#building_search'
   resources :vsers
 
   resources :maps
