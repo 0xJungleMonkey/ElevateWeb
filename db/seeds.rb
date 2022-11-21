@@ -208,3 +208,16 @@ Building.all.each do |bob|
 end
 
 puts "*(*******************BuildingDetail Table seeded with #{BuildingDetail.count} records********************* "
+
+# employee_id: Battery.find(col.battery_id).employee_id,
+#                 building_id: Battery.find(col.battery_id).building_id,
+#                 battery_id: nil,
+#                 column_id: col.id,
+#                 elevator_id: nil,
+#                 status:["Pending","InProgress", "Interrupted ","Resumed", "Complete","Complete","Complete","Complete","Complete","Complete","Complete"].sample,
+#                 start_datetime: Faker::Date.between(from: Battery.find(col.battery_id).CommissionDate, to: Date.today),
+#                 end_datetime:  Faker::Date.between(from: Battery.find(col.battery_id).CommissionDate, to: Date.today),
+#                 result: ["Success","Success","Success","Success","Success","Success","Success","Success", "Failure", "Incomplete"].sample,
+#                 report: Faker::Movies::HarryPotter.quote
+
+# puts "*(*******************BuildingDetail Table seeded with #{BuildingDetail.count} records********************* "

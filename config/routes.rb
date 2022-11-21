@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  resources :interventions
   resources :pollies
 
   resources :vsers
@@ -37,6 +38,7 @@ post '/lead', to: 'leads#create'
   get 'dropbox/auth_callback' => 'dropbox#auth_callback'
 
 get '/map', to: 'admin#map'
+get '/interventions', to:"pages#interventions"
 
 resources :maps
 

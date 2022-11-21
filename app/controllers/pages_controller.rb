@@ -7,6 +7,8 @@ def commercial
 end
 def index
 end
+def interventions
+end
 end
 
 
