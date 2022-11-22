@@ -1,0 +1,20 @@
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+
+<div class="row no-gutters wow slideInUp" data-wow-duration="1s">
+  <div class="col-md-12 home-form">
+    <%= form_tag(interventions_path, method: "get", class: "form-inline", remote: true) do %>
+    <%= select_tag "customer", options_from_collection_for_select(Customer.all, "id", "CompanyName"), prompt: "Customer", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+    <%# <%= select_tag "building_type", options_from_collection_for_select(Building.all, "id", "building_type"), prompt: "Building Type", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %> %>
+    <%= select_tag "building", options_from_collection_for_select(Building.all, "id", "FullNameOfBuildingAdmin"), prompt: "Building", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+    
+    <%= submit_tag("Search", class: "btn btn-primary") %>
+<% end %>
+  </div>
+</div>

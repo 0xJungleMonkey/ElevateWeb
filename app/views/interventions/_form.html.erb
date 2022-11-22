@@ -1,0 +1,110 @@
+ <h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+	<form action="/interventions" method="post" accept-charset="UTF-8" >
+    <%= select_tag "customer_id", options_from_collection_for_select(Customer.all, "id", "CompanyName"), prompt: "Customer", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+    <%= select_tag "building_id", options_from_collection_for_select(Building.all, "id", "FullNameOfBuildingAdmin"), prompt: "Building", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+    <%= select_tag "battery_id", options_from_collection_for_select(Battery.all, "id", "id"), prompt: "Building", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+           <%= select_tag "column_id", options_from_collection_for_select(Column.all, "id", "id"), prompt: "Column", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%>
+
+           <%= select_tag "elevator_id", options_from_collection_for_select(Elevator.all, "id", "id"), prompt: "Elevator", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%>
+
+       <%= select_tag "employee_id", options_from_collection_for_select(Employee.all, "id", "first_name"), prompt: "Employee", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%>
+
+    <div class="row">
+									<div class="col-md-12">
+										<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
+									</div>
+								</div>
+</form>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<%= form_with(model: @intervention, remote: true) do |form| %> 
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+        <%# <%= select_tag "customer_id", options_from_collection_for_select(Customer.all, "id", "CompanyName"), prompt: "Customer", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %> %>
+
+    <%= form.select  "customer_id", options_from_collection_for_select(Customer.all, "id", "CompanyName"), prompt: "Customer", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :building_id %>
+        <%# <%= select_tag "building_id", options_from_collection_for_select(Building.all, "id", "FullNameOfBuildingAdmin"), prompt: "Building", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%> %>
+
+    <%= form.select  "building_id" , options_from_collection_for_select(Building.all, "id", "FullNameOfBuildingAdmin"), prompt: "Building", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :battery_id %>
+    <%= form.select :battery_id , options_from_collection_for_select(Building.all, "id", "FullNameOfBuildingAdmin"), prompt: "Building", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :column_id %>
+    <%= form.select :column_id, options_from_collection_for_select(Building.all, "id", "FullNameOfBuildingAdmin"), prompt: "Building", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :elevator_id %>
+   <%= form.select :elevator_id, options_from_collection_for_select(Employee.all, "id", "first_name"), prompt: "Employee", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :employee_id %>
+    <%= form.select :employee_id , options_from_collection_for_select(Building.all, "id", "FullNameOfBuildingAdmin"), prompt: "Building", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_datetime %>
+    <%= form.text_field :start_datetime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_datetime %>
+    <%= form.datetime_select :end_datetime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :result %>
+    <%= form.text_field :result %>
+  </div>
+
+  <div class="field">
+    <%= form.label :report %>
+    <%= form.text_field :report %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
