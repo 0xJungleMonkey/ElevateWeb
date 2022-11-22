@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :interventions
   get 'get_buildings_by_customer_id/:customer_id', to: 'interventions#get_buildings_by_customer_id'  
   get '/newinterventions' => 'interventions#new'
+  get 'get_batteries_by_building_id/:building_id', to: "interventions#get_batteries_by_building_id"
+  get 'get_columns_by_battery_id/:battery_id', to: "interventions#get_columns_by_battery_id"
+  get 'get_elevators_by_column_id/:column_id', to: "interventions#get_elevators_by_column_id"
   resources :pollies
   get 'get_buildings_by_customer_id/:customer_id', to: 'interventions#get_buildings_by_customer_id'  
   get '/building_search' => 'buildings#building_search'

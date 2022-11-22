@@ -19,5 +19,8 @@
 //= demo.revolution_slider
 //= demo.layerslider_slider
 //= require buildings
+//= require battery
+//= require column
+//= require elevator
 //= require_tree .
 
