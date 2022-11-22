@@ -5,11 +5,11 @@ class BuildingsController < ApplicationController
           format.json { render :json => @buildings }
         end
       end
-      def building_search
-        if params[:customer].present? && params[:customer].strip != ""
-          @buildings = Building.where("customer_id = ?", params[:customer])
-        else
-          @buildings = Building.all
-        end
-      end
+      # def building_search
+      #   if params[:customer].present? && params[:customer].strip != ""
+      #     @buildings = Building.where("customer_id = ?", params[:customer])
+      #   else
+      #     @buildings = Building.all
+      #   end
+      # end
 end

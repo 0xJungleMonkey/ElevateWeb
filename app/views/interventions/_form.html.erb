@@ -1,15 +1,44 @@
-<%= form_with(model: intervention, local: true) do |form| %>
-  <% if intervention.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(intervention.errors.count, "error") %> prohibited this intervention from being saved:</h2>
+ <h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+	<form action="/interventions" method="post" accept-charset="UTF-8" >
+    <%= select_tag "customer_id", options_from_collection_for_select(Customer.all, "id", "CompanyName"), prompt: "Customer", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+    <%= select_tag "building_id", options_from_collection_for_select(Building.all, "id", "FullNameOfBuildingAdmin"), prompt: "Building", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+    <%= select_tag "battery_id", options_from_collection_for_select(Battery.all, "id", "id"), prompt: "Building", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+           <%= select_tag "column_id", options_from_collection_for_select(Column.all, "id", "id"), prompt: "Column", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%>
 
-      <ul>
-      <% intervention.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+           <%= select_tag "elevator_id", options_from_collection_for_select(Elevator.all, "id", "id"), prompt: "Elevator", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%>
+
+       <%= select_tag "employee_id", options_from_collection_for_select(Employee.all, "id", "first_name"), prompt: "Employee", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%>
+
+    <div class="row">
+									<div class="col-md-12">
+										<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
+									</div>
+								</div>
+</form>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<h1>mewo</h1>
+<%= form_with(model: @intervention, remote: true) do |form| %> 
 
   <div class="field">
     <%= form.label :author %>
@@ -18,12 +47,16 @@
 
   <div class="field">
     <%= form.label :customer_id %>
-    <%= form.select "customer_id", options_from_collection_for_select(Customer.all, "id", "CompanyName"), prompt: "Customer", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%>
+        <%# <%= select_tag "customer_id", options_from_collection_for_select(Customer.all, "id", "CompanyName"), prompt: "Customer", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %> %>
+
+    <%= form.select  "customer_id", options_from_collection_for_select(Customer.all, "id", "CompanyName"), prompt: "Customer", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
   </div>
 
   <div class="field">
     <%= form.label :building_id %>
-    <%= form.select :building_id , options_from_collection_for_select(Building.all, "id", "FullNameOfBuildingAdmin"), prompt: "Building", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%>
+        <%# <%= select_tag "building_id", options_from_collection_for_select(Building.all, "id", "FullNameOfBuildingAdmin"), prompt: "Building", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%> %>
+
+    <%= form.select  "building_id" , options_from_collection_for_select(Building.all, "id", "FullNameOfBuildingAdmin"), prompt: "Building", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
   </div>
 
   <div class="field">
@@ -38,7 +71,7 @@
 
   <div class="field">
     <%= form.label :elevator_id %>
-   <%= form.select :elevator_id, options_from_collection_for_select(Building.all, "id", "FullNameOfBuildingAdmin"), prompt: "Building", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%>
+   <%= form.select :elevator_id, options_from_collection_for_select(Employee.all, "id", "first_name"), prompt: "Employee", class: "custom-select mb-0 mr-sm-0 mb-sm-0"%>
   </div>
 
   <div class="field">

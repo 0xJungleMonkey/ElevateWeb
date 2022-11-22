@@ -2,17 +2,17 @@
 
 $(function() {
 
-   if ($("select#customer").val() == "") {
-    $("select#building option").remove();
+   if ($("select#customer_id").val() == "") {
+    $("select#building_id option").remove();
     var row = "<option value=\"" + "" + "\">" + "Building" + "</option>";
-    $(row).appendTo("select#building");
+    $(row).appendTo("select#building_id");
    }
-   $("select#customer").change(function() {
+   $("select#customer_id").change(function() {
     var id_value_string = $(this).val();
     if (id_value_string == "") {
-     $("select#building option").remove();
+     $("select#building_id option").remove();
      var row = "<option value=\"" + "" + "\">" + "Building" + "</option>";
-     $(row).appendTo("select#building");
+     $(row).appendTo("select#building_id");
     } else {
      // Send the request and update building dropdown
      $.ajax({
@@ -25,14 +25,14 @@ $(function() {
       },
       success: function(data) {
        // Clear all options from building select
-       $("select#building option").remove();
+       $("select#building_id option").remove();
        //put in a empty default line
        var row = "<option value=\"" + "" + "\">" + "Building" + "</option>";
-       $(row).appendTo("select#building");
+       $(row).appendTo("select#building_id");
        // Fill building select
        $.each(data, function(i, j) {
         row = "<option value=\"" + j.id + "\">" + j.FullNameOfBuildingAdmin + "</option>";
-        $(row).appendTo("select#building");
+        $(row).appendTo("select#building_id");
        });
       }
      });
