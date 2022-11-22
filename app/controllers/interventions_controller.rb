@@ -6,9 +6,16 @@ class InterventionsController < InheritedResources::Base
     end
     def create
       intervention= Intervention.create!(
-        # raise Foorbar
+        result: "Incomplete",
+        report: params[:report],
+        status: "Pending",
+        employee_id: params[:employee_id],
+        elevator_id: params[:elevator_id],
+        column_id: params[:column_id],
+        battery_id: params[:battery_id],
         building_id: params[:building_id],
         customer_id: params[:customer_id],
+
         
       )
     end
@@ -23,5 +30,31 @@ class InterventionsController < InheritedResources::Base
       # console
     end
     
-    
+    def get_batteries_by_building_id
+      # byebug
+      @batteries = Battery.where("building_id = ?", params[:building_id])
+      respond_to do |format|
+        # console
+        format.json { render :json => @batteries }
+        
+      end
+      # console
+    end
+    def get_columns_by_battery_id
+      @columns = Column.where("battery_id = ?", params[:battery_id])
+      respond_to do |format|
+        # console
+        format.json { render :json => @columns }
+      end
+      # console
+    end
+    def get_elevators_by_column_id
+      @elevators = Elevator.where("column_id = ?", params[:column_id])
+      respond_to do |format|
+        # console
+        format.json { render :json => @elevators }
+      end
+      # console
+    end
+
 end
