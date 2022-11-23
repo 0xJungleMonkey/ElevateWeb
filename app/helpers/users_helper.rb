@@ -1,4 +1,4 @@
-module InterventionsHelper
+module UsersHelper
 
   # Logs in the given user.
   def log_in(user)

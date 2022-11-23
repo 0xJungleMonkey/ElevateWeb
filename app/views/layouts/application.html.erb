@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+   <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
     <title>Rocket Elevators</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta content="authenticity_token" name="csrf-param" />
+
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -86,11 +90,38 @@
                             <a href="/index#contact">
                                 CONTACT
                             </a>
+                        </li>
                         <li><!-- Backoffice -->
                             <a href="/admin">
+                                BACKOFFICE
+                            </a>
+                        </li>
+                        <div>
+                            <% if user_signed_in? %>
+  <%# Logged in as <strong><%= current_user.email %>
+  <%# </strong>. %>
+ <li><!-- DeviseLogin -->
+                            <a href="/newinterventions">
                                 LOGIN
                             </a>
                         </li>
+  <%= link_to "Logout", destroy_user_session_path, method: :get, :class => 'navbar-link'  %>
+<% else %>
+  <%# <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
+  <%= link_to "Sign in", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+</div>
+                        <li><!-- DeviseLogin -->
+                            <a href="/users/sign_in">
+                                LOGIN
+                            </a>
+                        </li>
+                        <li><!-- DeviseLogout -->
+                            <a href="/users/sign_out">
+                                LOGOUT
+                            </a>
+                        </li>
+                        <li>
                     </ul>
 
                 </nav>
@@ -99,8 +130,11 @@
         </div>
     </header>
     </div>
+    
 
   <body>
+  
+
     <%= yield %>
   </body>
   <footer id="footer">
