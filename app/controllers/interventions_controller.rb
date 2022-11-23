@@ -23,13 +23,9 @@ class InterventionsController < InheritedResources::Base
       # before_action :authenticate_user!
       # if log_in(current_user)
         intervention= Intervention.create!(
-          # console
          
           # author: Employee.where("email = ?", current_user).first,
-          # author: User.find(:id, current_user),
-          # author: @email,
           author:current_user.email,
-          # raise_delivery_errors
           
           result: "Incomplete",
           report: params[:report],
