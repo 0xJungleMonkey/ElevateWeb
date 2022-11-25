@@ -2,28 +2,14 @@ class InterventionsController < InheritedResources::Base
   require 'byebug'
   protect_from_forgery
   before_action :authenticate_user!
-  
-  # before_filter :authenticate_user!
-
     def intervention_params
       params.require(:intervention).permit(:author, :customer_id, :building_id, :battery_id, :column_id, :elevator_id, :employee_id, :start_datetime, :end_datetime, :result, :report, :status)
     end
     skip_before_action :verify_authenticity_token
 
-  #   def index    
-  #     if current_user
-  #       @email = current_user.email
-  #       puts "*********************************************************************************************I love ruby."
-  #       create()
-  #     else
-  #       redirect_to new_user_session_path, notice: 'You are not logged in.'
-  #     end
-  #  end
     def create
-      # before_action :authenticate_user!
-      # if log_in(current_user)
+     
         intervention= Intervention.create!(
-         
           # author: Employee.where("email = ?", current_user).first,
           author:current_user.email,
           
@@ -40,11 +26,50 @@ class InterventionsController < InheritedResources::Base
           
         )
         # console
-        raise_delivery_errors
+         # Your freshdesk domain
+      freshdesk_domain = 'https://meowmeowco.freshdesk.com/api/v2/tickets'
+      
+      # It could be either your user name or api_key.
+      api_key = Figaro.env.freshdesk_api_key
+      # If you have given api_key, then it should be x. If you have given user name, it should be password
+      password_or_x = 'X'
+        
+      #attachments should be of the form array of Hash with files mapped to the key 'resource'.
+      quote_payload = { status: 2,
+                          priority: 1,
+                          type: "Incident",
+                          email: "xinqidavis@gmail.com",
+                          subject: "Interventions report",
+                          description: "The requester #{intervention.author} reported an intervention request. Details are as follows:
+                          Building ID: #{intervention.building_id};
+                          Battery ID: #{intervention.battery_id};
+                          Column ID: #{intervention.column_id};
+                          Elevator ID: #{intervention.elevator_id};
+                          Employee to be assigned to the task: #{intervention.employee_id};
+                          Description of the request for intervention: #{intervention.report}",
+
+        }.to_json
+      # quote_payload = {status: 2, priority: 1, type: "Question", email: "email@stuff.com", description: "Hello", subject: "yeeee",}.to_json
+                          
+                          
+          site = RestClient::Resource.new(freshdesk_domain, api_key, password_or_x)
+          
+          begin
+              response = site.post(quote_payload, :content_type=>"application/json")
+              puts "response_code: #{response.code} \n Location Header: #{response.headers[:Location]} \n response_body: #{response.body} \n"
+          rescue RestClient::Exception => exception
+              puts 'API Error: Your request is not successful. If you are not able to debug this error properly, mail us at support@freshdesk.com with the follwing X-Request-Id'
+              puts "X-Request-Id : #{exception.response.headers[:x_request_id]}"
+        puts "Response Code: #{exception.response.code} \nResponse Body: #{exception.response.body} \n"
+    end
+    ##################################################################
+    # FreshDesk END
+    ##################################################################
+    redirect_to('/interventions')
+    end
         # intervention.author = current_user
     end
-    # def 
-  # end
+
     def get_buildings_by_customer_id
       # byebug
       @buildings = Building.where("customer_id = ?", params[:customer_id])
