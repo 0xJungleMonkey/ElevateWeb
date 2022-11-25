@@ -7,6 +7,10 @@ def commercial
 end
 def index
 end
+def new
+    # @intervention = Intervention.new
+
+end
 end
 
 
