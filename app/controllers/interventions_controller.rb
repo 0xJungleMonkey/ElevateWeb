@@ -61,14 +61,10 @@ class InterventionsController < InheritedResources::Base
               puts 'API Error: Your request is not successful. If you are not able to debug this error properly, mail us at support@freshdesk.com with the follwing X-Request-Id'
               puts "X-Request-Id : #{exception.response.headers[:x_request_id]}"
         puts "Response Code: #{exception.response.code} \nResponse Body: #{exception.response.body} \n"
+      end
+    redirect_to('/newinterventions')
     end
-    ##################################################################
-    # FreshDesk END
-    ##################################################################
-    redirect_to('/interventions')
-    end
-        # intervention.author = current_user
-    end
+    
 
     def get_buildings_by_customer_id
       # byebug

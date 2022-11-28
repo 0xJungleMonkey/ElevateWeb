@@ -11,7 +11,7 @@ $(function() {
      var id_value_string = $(this).val();
      if (id_value_string == "") {
       $("select#column_id option").remove();
-      var row = "<option value=\"" + "" + "\">" + "Column" + "</option>";
+      var row = "<option value=\"" + "" + "\">" + "None" + "</option>";
       $(row).appendTo("select#column_id");
      } else {
       // Send the request and update building dropdown
@@ -27,7 +27,7 @@ $(function() {
         // Clear all options from building select
         $("select#column_id option").remove();
         //put in a empty default line
-        var row = "<option value=\"" + "" + "\">" + "Column" + "</option>";
+        var row = "<option value=\"" + "" + "\">" + "None" + "</option>";
         $(row).appendTo("select#column_id");
         // Fill building select
         $.each(data, function(i, j) {
