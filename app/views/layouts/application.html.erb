@@ -1,21 +1,47 @@
+
 <!DOCTYPE html>
-<html>
-  <head>
-   <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+<html lang="en">
+<%# <p class="notice"><%= notice %></p> 
+       <%# <p class="alert"><%= alert %></p> 
     <title>Rocket Elevators</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta content="authenticity_token" name="csrf-param" />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' ,'data-turbolinks-eval': 'false' %>
+   
+     <%= yield(:head_tags) %>
+    <%# <%= csrf_meta_tags %> 
+    <%# <%= csp_meta_tag %> 
+    <%# <meta content="authenticity_token" name="csrf-param" /> %>
+
+   <style>
+   @media (min-width: 993px) {
+  #header {
+    height: 70px;
+    /* Add other styles as needed */
+
+  }
+}
+@media (max-width: 992px) {
+  /* Hide the collapsed menu by default */
+  .nav-main-collapse {
+    display: none;
+  }
+
+  /* Show the collapsed menu when the button is clicked */
+  .nav-main-collapse.show {
+    display: block;
+  }
+}
+
+/* Default styling for the collapsed menu */
 
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+/* Media query for screens with a width less than 993 pixels */
+
+
+   </style>
     <meta charset="utf-8" />
-    <title>Rocket Elevators - Multipurpose + Admin</title>
+    <title>Rocket Elevators </title>
     <meta name="description" content="" />
-    <meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
+    <meta name="Author" content="Sherry(Xinqi) Davis" />
     
      <!-- mobile settings -->
      <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
@@ -24,167 +50,202 @@
      <!-- WEB FONTS : use %7C instead of | (pipe) -->
      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
     <%# <script>let plugin_path = '/assets/plugins/'</script %>
-    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+Figaro.env.google_maps_api_key%>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-     <%= yield(:head_tags) %>
-    </head>
- 
-    <div id="header" class="navbar-toggleable-md sticky header-md clearfix">
-
-    <!-- TOP NAV -->
-    <header id="topNav">
-        <div class="container">
-
-            <!-- Mobile Menu Button -->
-            <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
-                <i class="fa fa-bars"></i>
-            </button>
-
-            <!-- Logo -->
-            <a class="logo float-left scrollTo" href="#top">
-            <%=image_tag("R2.png" , alt: "")%>
-            </a>
-
-            <!-- 
-                Top Nav 
-                
-                AVAILABLE CLASSES:
-                submenu-dark = dark sub menu
-            -->
-            <div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
-                <nav class="nav-main">
-
-                    <!-- 
-                        .nav-onepage
-                        Required for onepage navigation links
-                        
-                        Add .external for an external link!
-                    -->
-                    <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
-                        <li class="active"><!-- HOME -->
-                            <a href="/index">
-                                HOME
-                            </a>
-                        </li>
-                        <li><!-- SERVICES -->
-                            <a href="/index#services">
-                                SERVICES
-                            </a>
-                        </li>
-                        <li><!-- PORTFOLIO -->
-                            <a href="/index#portfolio">
-                                PORTFOLIO
-                            </a>
-                        </li>
-                        <li><!-- NEWS -->
-                            <a href="/index#news">
-                                NEWS
-                            </a>
-                        </li>
-                        <li><!-- CLIENTS -->
-                            <a href="/index#clients">
-                                CLIENTS
-                            </a>
-                        </li>
-                        <li><!-- CONTACT -->
-                            <a href="/index#contact">
-                                CONTACT
-                            </a>
-                        </li>
-                        <li><!-- Backoffice -->
-                            <a href="/admin">
-                                BACKOFFICE
-                            </a>
-                        </li>
-                        
-                            <% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %>
-  </strong>. 
- <li><!-- DeviseLogin -->
-                            <a href="/newinterventions">
-                                INTERVENTION
-                            </a>
-                        </li>
-                        <li>
-  <%= link_to "LOGOUT", destroy_user_session_path, method: :get, :class => 'navbar-link'  %>
-  </li>
-<% else %>
-  <%# <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
-  <li><!-- DeviseLogout -->
-  <%= link_to "LOGIN", new_user_session_path, :class => 'navbar-link'  %>
-  </li>
-<% end %>
-
-                    </ul>
-
-                </nav>
-            </div>
-
-        </div>
-    </header>
-    </div>
     
+     
 
-  <body>
+	<!-- CORE CSS -->
+	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
-    <%= yield %>
-  </body>
-  <footer id="footer">
-<div class="container">
+	<!-- REVOLUTION SLIDER -->
+	<link href="assets/plugins/slider.revolution/css/extralayers.css" rel="stylesheet" type="text/css" />
+	<link href="assets/plugins/slider.revolution/css/settings.css" rel="stylesheet" type="text/css" />
 
-
-  <div class="row">
-
-    <!-- col #1 -->
-    <div class="col-md-8">
-
-      <h3 class="letter-spacing-1">WHY US?</h3>
-
-      <!-- Small Description -->
-      <p>
-        We will service all of your elevator wants and needs. Get up and down in style with Rocket Elevators
-      </p>
-      <h2> 1-800-887-2497</h2>
-    </div>
-    <!-- /col #1 -->
-
-    <!-- col #2 -->
-    <div class="col-md-4">
-      <h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
-
-      <!-- Newsletter Form -->
-      <p>Subscribe to Our Newsletter to get Important News & Offers</p>
-
-      <form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
-        <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-          <input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="submit">Subscribe</button>
-          </span>
-        </div>
-      </form>
-      <!-- /Newsletter Form -->
+	<!-- THEME CSS -->
+	<link href="assets/css/essentials.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/layout.css" rel="stylesheet" type="text/css" />
 
 
-    </div>
-    <!-- /col #2 -->
+	<!-- PAGE LEVEL SCRIPTS -->
+	<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
+	
+</head> 
 
-  </div>
+<body class="smoothscroll enable-animation">
 
 
-</div>
+	<!-- wrapper -->
+	<div id="wrapper">
+		<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
 
-<div class="copyright">
-  <div class="container">
-    <ul class="float-right m-0 list-inline mobile-block">
-      <li><a href="#">Terms &amp; Conditions</a></li>
-      <li>&bull;</li>
-      <li><a href="#">Privacy</a></li>
-    </ul>
-    &copy; All Rights Reserved, Rocket Elevators LLC
-  </div>
-</div>
+			<!-- TOP NAV -->
+			<div id="topNav">
+				
 
-</footer>
+					<!-- Mobile Menu Button -->
+					<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<!-- Logo -->
+					<a class="logo float-left scrollTo" href="#top">
+						<img src="assets/images/rocketelevators/R2.png" alt="" />
+					</a>
+
+					<!-- Top Nav -->
+					<div class="nav-collapse float-right nav-main-collapse submenu-dark">
+						<nav class="nav-main">
+							<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+								<li class="active">
+									<!-- HOME -->
+									<a href="#home">
+										HOME
+									</a>
+								</li>
+								<li>
+									<!-- SERVICES -->
+									<a href="#services">
+										SERVICES
+									</a>
+								</li>
+								<li>
+									<!-- WORK -->
+									<a href="#portfolio">
+										PORTFOLIO
+									</a>
+								</li>
+								<li>
+									<!-- NEWS -->
+									<a href="#news">
+										NEWS
+									</a>
+								</li>
+
+								<li>
+									<!-- CLIENTS -->
+									<a href="#clients">
+										CLIENTS
+									</a>
+								</li>
+
+								<li>
+									<!-- CONTACT -->
+									<a href="#contact">
+										CONTACT
+									</a>
+								</li>
+							</ul>
+
+						</nav>
+					</div>
+
+				
+			</div>
+			<!-- /Top Nav -->
+
+		</div>
+
+		<%= yield%>
+
+
+
+		<!-- FOOTER -->
+		<footer id="footer">
+			<div class="container">
+
+
+				<div class="row">
+
+					<!-- col #1 -->
+					<div class="col-md-8">
+
+						<h3 class="letter-spacing-1">WHY US? Rocket Elevators!</h3>
+
+						<!-- Small Description -->
+						<p>
+							We offer you most trustworthy and affordable elevator services.
+						</p>
+						<h2>(800) 123-4567</h2>
+					</div>
+					<!-- /col #1 -->
+
+					<!-- col #2 -->
+					<div class="col-md-4">
+						<h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
+
+						<!-- Newsletter Form -->
+						<p>Subscribe to Our Newsletter to get Important News & Offers</p>
+
+						<form class="validate" action="php/newsletter.php" method="post"
+							data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+								<input type="email" id="email" name="email" class="form-control required"
+									placeholder="Enter your Email">
+								<span class="input-group-btn">
+									<button class="btn btn-primary" type="submit">Subscribe</button>
+								</span>
+							</div>
+						</form>
+						<!-- /Newsletter Form -->
+
+
+					</div>
+					<!-- /col #2 -->
+
+				</div>
+
+
+			</div>
+
+			<div class="copyright">
+				<div class="container">
+					<ul class="float-right m-0 list-inline mobile-block">
+						<li><a href="#">Terms &amp; Conditions</a></li>
+						<li>&bull;</li>
+						<li><a href="#">Privacy</a></li>
+					</ul>
+					&copy; All Rights Reserved, Rocket Elevators LTD
+				</div>
+			</div>
+
+		</footer>
+		<!-- /FOOTER -->
+
+	</div>
+	<!-- /wrapper -->
+
+
+	<!-- SCROLL TO TOP -->
+	<a href="#" id="toTop"></a>
+
+
+	<!-- PRELOADER -->
+	<div id="preloader">
+		<div class="inner">
+			<span class="loader"></span>
+		</div>
+	</div><!-- /PRELOADER -->
+
+
+	<!-- JAVASCRIPT FILES -->
+	<script>var plugin_path = 'assets/plugins/';</script>
+	<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+
+	<script src="assets/js/scripts.js"></script>
+
+	<!-- REVOLUTION SLIDER -->
+	<script src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
+	<script src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="assets/js/view/demo.revolution_slider.js"></script>
+
+	<!-- PAGELEVEL SCRIPTS -->
+	<script src="assets/js/contact.js"></script>
+
+	<script src="assets/plugins/gmaps.js"></script>
+   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' , 'data-turbolinks-eval': 'false'%>
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+Figaro.env.google_maps_api_key, 'data-turbolinks-eval': 'false'%>
+
+</body>
+
 </html>

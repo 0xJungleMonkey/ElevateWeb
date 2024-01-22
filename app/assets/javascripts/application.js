@@ -24,3 +24,9 @@
 //= require elevator
 //= require_tree .
 
+$(document).on('turbolinks:load', function() {
+    // Your custom JavaScript code
+    $('.btn-mobile').click(function() {
+      $('.nav-main-collapse').toggleClass('show');
+    });
+  });
