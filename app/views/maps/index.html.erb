@@ -11,7 +11,8 @@
     id="breweries" style="display:none">
     <ol>
       <% Address.all.each do |address| %>
-      <% b = address.building%>      
+      <% b = address.building%>  
+      <% if b%>    
          <% no_of_column = 0 %>
          <% no_of_elevator = 0 %>
          <% for c in b.battery_ids do %>
@@ -39,6 +40,7 @@
 
         >
         </li>
+        <% end %>
         <% end %>
      
     </ol>
